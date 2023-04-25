@@ -18,7 +18,7 @@ const backgroundImage = require("../images/backgroundImage.jpg");
 
 SplashScreen.preventAutoHideAsync();
 
-export function LoginScreen() {
+export function LoginScreen({navigation}) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -115,7 +115,9 @@ export function LoginScreen() {
               <TouchableOpacity style={styles.button} onPress={handleSubmit}>
                 <Text style={styles.buttonTitle}>Войти</Text>
               </TouchableOpacity>
+              <TouchableOpacity onPress={() => navigation.navigate("Registration")}>
               <Text style={styles.link}>Нет аккаунта? Зарегистрироваться</Text>
+              </TouchableOpacity>
             </View>
           </KeyboardAvoidingView>
         </ImageBackground>

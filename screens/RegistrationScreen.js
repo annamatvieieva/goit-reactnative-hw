@@ -23,7 +23,7 @@ const closeIcon = require("../images/close.png");
 
 SplashScreen.preventAutoHideAsync();
 
-export function RegistrationScreen() {
+export function RegistrationScreen({navigation}) {
   const [avatar, setAvatar] = useState(null);
   const [login, setLogin] = useState("");
   const [email, setEmail] = useState("");
@@ -46,12 +46,14 @@ export function RegistrationScreen() {
     return null;
   }
 
+
+
   const pickImage = async () => {
     if (avatar) {
       setTimeout(() => setAvatar(null), 2000);
     } else {
       let result = await ImagePicker.launchImageLibraryAsync({
-        mediaTypes: ImagePicker.MediaTypeOptions.All,
+        mediaTypes: ImagePicker.MediaTypeOptions.Images,
         allowsEditing: true,
         aspect: [4, 3],
         quality: 1,
@@ -59,8 +61,8 @@ export function RegistrationScreen() {
 
       console.log(result);
 
-      if (!result.canceled) {
-        setAvatar(result.assets[0].uri);
+      if (!result.cancelled) {
+        setAvatar(result.uri);
       }
     }
   };
@@ -85,6 +87,8 @@ export function RegistrationScreen() {
       password,
     };
     console.log(user);
+
+    navigation.navigate("PostsScreen");
   };
 
   return (
@@ -175,7 +179,9 @@ export function RegistrationScreen() {
               <TouchableOpacity style={styles.button} onPress={handleSubmit}>
                 <Text style={styles.buttonTitle}>Зарегистрироваться</Text>
               </TouchableOpacity>
+              <TouchableOpacity onPress={() => navigation.navigate("Login")}>
               <Text style={styles.link}>Уже есть аккаунт? Войти</Text>
+              </TouchableOpacity>
             </View>
           </KeyboardAvoidingView>
         </ImageBackground>
