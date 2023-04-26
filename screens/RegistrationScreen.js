@@ -88,7 +88,7 @@ export function RegistrationScreen({navigation}) {
     };
     console.log(user);
 
-    navigation.navigate("PostsScreen");
+    navigation.navigate("CreatePostsScreen");
   };
 
   return (

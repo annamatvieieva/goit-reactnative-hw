@@ -1,10 +1,10 @@
-import { Text, View,  Image } from "react-native";
+import { Text, View,  Image, FlatList } from "react-native";
 
 
 export function PostList() {
 	return(
-		<View>
+		<FlatList>
     <Text>PostList</Text>
-		</View>
+		</FlatList>
 	)
 }
