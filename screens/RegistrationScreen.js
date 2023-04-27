@@ -10,6 +10,7 @@ import {
   KeyboardAvoidingView,
   TouchableWithoutFeedback,
   Keyboard,
+  Platform,
 } from "react-native";
 
 import { useFonts } from "expo-font";
@@ -119,8 +120,7 @@ export function RegistrationScreen({navigation}) {
                   }}
                   onPress={pickImage}
                 >
-                  {avatar && <Image source={closeIcon} />}
-                  {!avatar && <Image source={plusIcon} />}
+                   <Image source={avatar ? closeIcon : plusIcon} />
                 </TouchableOpacity>
               </View>
               <Text style={styles.title}>Регистрация</Text>

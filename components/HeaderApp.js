@@ -1,10 +1,10 @@
 import { StyleSheet, View, Text, TouchableOpacity, Image } from "react-native"
 
-export const HeaderApp = ({title, icon, style}) => {
+export const HeaderApp = ({title, icon, style, func}) => {
 
 	return(<View style={styles.header}>
 		<Text style={styles.headerTitle}>{title}</Text>
-		<TouchableOpacity style={{...styles.buttonLogOut, ...style}}>
+		<TouchableOpacity style={{...styles.buttonLogOut, ...style}} onPress={func}>
 			<Image source={icon} />
 		</TouchableOpacity>
 	</View>
